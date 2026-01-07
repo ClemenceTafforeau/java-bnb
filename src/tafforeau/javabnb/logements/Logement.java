@@ -11,30 +11,10 @@ public class Logement {
     private int nbVoyageursMax;
 
     public Logement(Personne hote, int tarifParNuit, String adresse, int superficie, int nbVoyageursMax) {
-        setHote(hote);
-        setTarifParNuit(tarifParNuit);
-        setAdresse(adresse);
-        setSuperficie(superficie);
-        setNbVoyageursMax(nbVoyageursMax);
-    }
-
-    public void setHote(Personne hote) {
         this.hote = hote;
-    }
-
-    public void setTarifParNuit(int tarifParNuit) {
         this.tarifParNuit = tarifParNuit;
-    }
-
-    public void setAdresse(String adresse) {
         this.adresse = adresse;
-    }
-
-    public void setSuperficie(int superficie) {
         this.superficie = superficie;
-    }
-
-    public void setNbVoyageursMax(int nbVoyageursMax) {
         this.nbVoyageursMax = nbVoyageursMax;
     }
 
