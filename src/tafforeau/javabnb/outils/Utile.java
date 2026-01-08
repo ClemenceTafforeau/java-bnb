@@ -23,4 +23,18 @@ public final class Utile {
     public static String formaterDate(Date date) {
         return dateFormatter.format(date);
     }
+
+    public static String afficherPolarite(boolean condition) {
+        return condition ? "oui" : "non";
+    }
+
+    public static String afficherEtage(int numeroEtage) {
+        if (numeroEtage > 1) {
+            return numeroEtage + "ème étage";
+        } else if (numeroEtage == 1) {
+            return "1er étage";
+        } else {
+            return "rez-de-chaussée";
+        }
+    }
 }

@@ -2,9 +2,9 @@ package tafforeau.javabnb.utilisateurs;
 
 public class Personne {
 
-    private String prenom;
-    private String nom;
-    private int age;
+    protected String prenom;
+    protected String nom;
+    protected int age;
 
     public Personne(String prenom, String nom, int age) {
         this.prenom = prenom;
