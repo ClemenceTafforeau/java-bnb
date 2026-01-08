@@ -13,6 +13,6 @@ public class Personne {
     }
 
     public void afficher() {
-        System.out.println(String.format("%s %s (%s ans)", this.prenom, this.nom, this.age));
+        System.out.print(String.format("%s %s (%s ans)", this.prenom, this.nom, this.age));
     }
 }

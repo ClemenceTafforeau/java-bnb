@@ -11,10 +11,12 @@ public class Hote extends Personne {
     }
 
     public void afficher() {
-        if (this.delaiDeReponse == 1) {
-            System.out.printf("%s %s (%s ans) qui s'engage à répondre dans l'heure%n", this.prenom, this.nom, this.age);
-        }
+        super.afficher();
 
-        System.out.printf("%s %s (%s ans) qui s'engage à répondre dans les %s heures%n", this.prenom, this.nom, this.age, this.delaiDeReponse);
+        if (this.delaiDeReponse == 1) {
+            System.out.printf(" qui s'engage à répondre dans l'heure%n");
+        } else {
+            System.out.printf(" qui s'engage à répondre dans les %s heures%n", this.delaiDeReponse);
+        }
     }
 }
