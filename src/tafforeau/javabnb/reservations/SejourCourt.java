@@ -19,12 +19,17 @@ public class SejourCourt extends Sejour {
     }
 
     @Override
+    public void miseAJourDuPrixDuSejour() {
+        System.out.printf("Le prix de ce séjour est de %s€%n", this.prix);
+    }
+
+    @Override
     public boolean aUnNombreDeNuitsCorrect() {
         return this.nbNuits >= 1 && this.nbNuits < MIN_NUITS_POUR_PROMOTION;
     }
 
     public void afficher() {
         super.afficher();
-        System.out.printf("Le prix de ce séjour est de %s€%n", this.prix);
+        miseAJourDuPrixDuSejour();
     }
 }

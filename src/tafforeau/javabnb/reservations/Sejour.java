@@ -23,6 +23,9 @@ public abstract class Sejour implements Reservable {
         this.prix = logement.getTarifParNuit() * nbNuits;
     }
 
+    // Méthodes abstraites
+    public abstract void miseAJourDuPrixDuSejour();
+
     // Implémentation de l'interface Reservable
     @Override
     public boolean aUneDateArriveeCorrecte() {

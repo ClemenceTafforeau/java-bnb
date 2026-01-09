@@ -26,6 +26,14 @@ public class SejourLong extends Sejour {
         return this.nbNuits >= MIN_NUITS_POUR_PROMOTION && this.nbNuits <= 31;
     }
 
+    @Override
+    public void miseAJourDuPrixDuSejour() {
+        this.promotion = calcPromotion();
+        String prixSejourArrondi = String.format("%.2f", (this.prix - this.promotion));
+
+        System.out.printf("Le prix de ce séjour est de %s€%n", prixSejourArrondi);
+    }
+
     private double calcPromotion() {
         return this.prix * ((double) PROMOTION_EN_POURCENTAGE / 100);
     }
@@ -37,9 +45,8 @@ public class SejourLong extends Sejour {
     }
 
     public void afficher() {
-        String prixSejourArrondi = String.format("%.2f", calcPrixSejour());
 
         super.afficher();
-        System.out.printf("Le prix de ce séjour est de %s€%n", prixSejourArrondi);
+        miseAJourDuPrixDuSejour();
     }
 }
