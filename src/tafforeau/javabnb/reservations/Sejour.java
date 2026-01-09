@@ -6,12 +6,13 @@ import tafforeau.javabnb.outils.Utile;
 import java.time.Instant;
 import java.util.Date;
 
-public class Sejour implements Reservable {
+public abstract class Sejour implements Reservable {
 
     private Date dateArrivee;
     private int nbNuits;
     private Logement logement;
     private int nbVoyageurs;
+    protected int prix;
     private int MIN_NUITS_POUR_PROMOTION = 6;
 
     public Sejour(Date dateArrivee, int nbNuits, Logement logement, int nbVoyageurs) {
@@ -19,17 +20,13 @@ public class Sejour implements Reservable {
         this.nbNuits = nbNuits;
         this.logement = logement;
         this.nbVoyageurs = nbVoyageurs;
+        this.prix = logement.getTarifParNuit() * nbNuits;
     }
 
     // Implémentation de l'interface Reservable
     @Override
     public boolean aUneDateArriveeCorrecte() {
         return this.dateArrivee.compareTo(Date.from(Instant.now())) > 0;
-    }
-
-    @Override
-    public boolean aUnNombreDeNuitsCorrect() {
-        return this.nbNuits >= 1 && this.nbNuits <= 31;
     }
 
     @Override
@@ -63,6 +60,10 @@ public class Sejour implements Reservable {
 
     public int getNbVoyageurs() {
         return this.nbVoyageurs;
+    }
+
+    public int getPrix() {
+        return this.prix;
     }
 
     // Setters

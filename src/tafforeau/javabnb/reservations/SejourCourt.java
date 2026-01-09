@@ -6,10 +6,7 @@ import java.util.Date;
 
 public class SejourCourt extends Sejour {
 
-    private int prix;
-
-    private Logement logement = super.getLogement();
-
+    private int prix = super.getPrix();
     private int nbNuits = super.getNbNuits();
     private int MIN_NUITS_POUR_PROMOTION = super.getMinNuitsPourPromotion();
 
@@ -19,12 +16,11 @@ public class SejourCourt extends Sejour {
         if (nbNuits >= MIN_NUITS_POUR_PROMOTION) {
             throw new IllegalArgumentException(String.format("Un séjour court ne peut pas dépasser %s nuits", MIN_NUITS_POUR_PROMOTION - 1));
         }
-
-        this.prix = calcPrixSejour();
     }
 
-    private int calcPrixSejour() {
-        return logement.getTarifParNuit() * this.nbNuits;
+    @Override
+    public boolean aUnNombreDeNuitsCorrect() {
+        return this.nbNuits >= 1 && this.nbNuits < MIN_NUITS_POUR_PROMOTION;
     }
 
     public void afficher() {
