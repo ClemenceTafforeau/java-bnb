@@ -10,7 +10,7 @@ public class SejourCourt extends Sejour {
     private int nbNuits = super.getNbNuits();
     private int MIN_NUITS_POUR_PROMOTION = super.getMinNuitsPourPromotion();
 
-    public SejourCourt(Date dateArrivee, int nbNuits, Logement logement, int nbVoyageurs) {
+    SejourCourt(Date dateArrivee, int nbNuits, Logement logement, int nbVoyageurs) {
         super(dateArrivee, nbNuits, logement, nbVoyageurs);
 
         if (nbNuits >= MIN_NUITS_POUR_PROMOTION) {

@@ -4,10 +4,7 @@ import tafforeau.javabnb.logements.Appartement;
 import tafforeau.javabnb.logements.Logement;
 import tafforeau.javabnb.logements.Maison;
 import tafforeau.javabnb.outils.Utile;
-import tafforeau.javabnb.reservations.Reservation;
-import tafforeau.javabnb.reservations.Sejour;
-import tafforeau.javabnb.reservations.SejourCourt;
-import tafforeau.javabnb.reservations.SejourLong;
+import tafforeau.javabnb.reservations.*;
 import tafforeau.javabnb.utilisateurs.Hote;
 import tafforeau.javabnb.utilisateurs.Voyageur;
 
@@ -29,8 +26,8 @@ public class Main {
         Date dateArrivee1 = Utile.creerDate(12,4,2026);
         Date dateArrivee2 = Utile.creerDate(24,5,2026);
 
-        Sejour sejour1 = new SejourCourt(dateArrivee1, 4, logement2, 3);
-        Sejour sejour2 = new SejourLong(dateArrivee2, 8, logement1, 5);
+        Sejour sejour1 = SejourFactory.createSejour(dateArrivee1, 4, logement2, 3);
+        Sejour sejour2 = SejourFactory.createSejour(dateArrivee2, 8, logement1, 5);
 
         Reservation reservation1 = new Reservation(personne4, sejour1);
         Reservation reservation2 = new Reservation(personne3, sejour2);
