@@ -12,8 +12,7 @@ public class Sejour implements Reservable {
     private int nbNuits;
     private Logement logement;
     private int nbVoyageurs;
-
-    private double tauxPromotion = 0.2;
+    private int MIN_NUITS_POUR_PROMOTION = 6;
 
     public Sejour(Date dateArrivee, int nbNuits, Logement logement, int nbVoyageurs) {
         this.dateArrivee = dateArrivee;
@@ -22,18 +21,7 @@ public class Sejour implements Reservable {
         this.nbVoyageurs = nbVoyageurs;
     }
 
-    public double calcPrixSejour(double tauxPromotion) {
-        int tarifLogement = this.logement.getTarifParNuit();
-
-        if (this.nbNuits > 5) {
-            double promotion = tarifLogement * this.nbNuits * tauxPromotion;
-
-            return tarifLogement * this.nbNuits - promotion;
-        } else {
-            return tarifLogement * this.nbNuits;
-        }
-    }
-
+    // Implémentation de l'interface Reservable
     @Override
     public boolean aUneDateArriveeCorrecte() {
         return this.dateArrivee.compareTo(Date.from(Instant.now())) > 0;
@@ -54,6 +42,31 @@ public class Sejour implements Reservable {
 
         this.logement.afficher();
         System.out.println(String.format("La date d'arrivée est le %s pour %s nuits", dateArriveeStr, this.nbNuits));
-        System.out.println(String.format("Le prix de ce séjour est de %s€", calcPrixSejour(this.tauxPromotion)));
+    }
+
+    // Getters
+    public int getMinNuitsPourPromotion() {
+        return this.MIN_NUITS_POUR_PROMOTION;
+    }
+
+    public Date getDateArrivee() {
+        return this.dateArrivee;
+    }
+
+    public int getNbNuits() {
+        return this.nbNuits;
+    }
+
+    public Logement getLogement() {
+        return this.logement;
+    }
+
+    public int getNbVoyageurs() {
+        return this.nbVoyageurs;
+    }
+
+    // Setters
+    public void setLogement(Logement logement) {
+        this.logement = logement;
     }
 }
