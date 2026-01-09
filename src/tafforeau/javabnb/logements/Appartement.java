@@ -7,6 +7,9 @@ public class Appartement extends Logement {
 
     private int superficieBalcon;
     private int numeroEtage;
+    private Hote aHote = getHote();
+    private String aAdresse = getAdresse();
+    private int aSuperficie = getSuperficie();
 
     public Appartement(Hote hote, int tarifParNuit, String adresse, int superficie, int nbVoyageursMax, int superficieBalcon, int numeroEtage) {
 
@@ -18,10 +21,10 @@ public class Appartement extends Logement {
     public void afficher() {
         String etage = Utile.afficherEtage(this.numeroEtage);
 
-        this.hote.afficher();
+        aHote.afficher();
 
-        System.out.printf("Le logement est un appartement situé %s au %s%n", this.adresse, etage);
-        System.out.printf("Superficie : %sm²%n", this.superficie);
+        System.out.printf("Le logement est un appartement situé %s au %s%n", aAdresse, etage);
+        System.out.printf("Superficie : %sm²%n", aSuperficie);
 
         if (this.superficieBalcon > 0) {
             System.out.printf("Balcon : %s (%sm²)%n", Utile.afficherPolarite(true), this.superficieBalcon);

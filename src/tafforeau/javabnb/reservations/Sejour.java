@@ -3,11 +3,10 @@ package tafforeau.javabnb.reservations;
 import tafforeau.javabnb.logements.Logement;
 import tafforeau.javabnb.outils.Utile;
 
-import java.text.SimpleDateFormat;
+import java.time.Instant;
 import java.util.Date;
-import java.util.Locale;
 
-public class Sejour {
+public class Sejour implements Reservable {
 
     private Date dateArrivee;
     private int nbNuits;
@@ -33,6 +32,21 @@ public class Sejour {
         } else {
             return tarifLogement * this.nbNuits;
         }
+    }
+
+    @Override
+    public boolean aUneDateArriveeCorrecte() {
+        return this.dateArrivee.compareTo(Date.from(Instant.now())) > 0;
+    }
+
+    @Override
+    public boolean aUnNombreDeNuitsCorrect() {
+        return this.nbNuits >= 1 && this.nbNuits <= 31;
+    }
+
+    @Override
+    public boolean aUnNombreDeVoyageursCorrect() {
+        return this.nbVoyageurs <= this.logement.getNbVoyageursMax();
     }
 
     public void afficher() {
