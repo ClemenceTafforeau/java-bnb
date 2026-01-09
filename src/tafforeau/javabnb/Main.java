@@ -8,12 +8,11 @@ import tafforeau.javabnb.reservations.*;
 import tafforeau.javabnb.utilisateurs.Hote;
 import tafforeau.javabnb.utilisateurs.Voyageur;
 
-import java.text.ParseException;
 import java.util.Date;
 
 public class Main {
 
-    public static void main(String[] args) throws ParseException {
+    public static void main(String[] args) throws Exception {
 
         Hote personne1 = new Hote("Maxime", "Albert", 28, 3);
         Hote personne2 = new Hote("Jacques", "Dupont", 67, 6);
@@ -26,7 +25,7 @@ public class Main {
         Date dateArrivee1 = Utile.creerDate(12,4,2026);
         Date dateArrivee2 = Utile.creerDate(24,5,2026);
 
-        Sejour sejour1 = SejourFactory.createSejour(dateArrivee1, 4, logement2, 3);
+        Sejour sejour1 = SejourFactory.createSejour(dateArrivee1, 4, logement2, 2);
         Sejour sejour2 = SejourFactory.createSejour(dateArrivee2, 8, logement1, 5);
 
         Reservation reservation1 = new Reservation(personne4, sejour1);

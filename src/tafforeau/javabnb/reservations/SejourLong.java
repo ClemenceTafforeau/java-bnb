@@ -38,12 +38,6 @@ public class SejourLong extends Sejour {
         return this.prix * ((double) PROMOTION_EN_POURCENTAGE / 100);
     }
 
-    private double calcPrixSejour() {
-        this.promotion = calcPromotion();
-
-        return this.prix - this.promotion;
-    }
-
     public void afficher() {
 
         super.afficher();
