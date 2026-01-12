@@ -20,7 +20,6 @@ public abstract class Sejour implements Reservable {
         this.nbNuits = nbNuits;
         this.logement = logement;
         this.nbVoyageurs = nbVoyageurs;
-        this.prix = logement.getTarifParNuit() * nbNuits;
     }
 
     // Méthodes abstraites

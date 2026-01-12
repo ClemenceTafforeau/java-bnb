@@ -7,39 +7,36 @@ import java.util.Date;
 public class SejourLong extends Sejour {
 
     private int PROMOTION_EN_POURCENTAGE = 20;
-    private double promotion;
+    private float promotion;
 
-    private int prix = super.getPrix();
-    private int nbNuits = super.getNbNuits();
-    private int MIN_NUITS_POUR_PROMOTION = super.getMinNuitsPourPromotion();
+    // private int MIN_NUITS_POUR_PROMOTION;
 
     SejourLong(Date dateArrivee, int nbNuits, Logement logement, int nbVoyageurs) {
         super(dateArrivee, nbNuits, logement, nbVoyageurs);
 
-        if (nbNuits < MIN_NUITS_POUR_PROMOTION) {
+        /* if (nbNuits < MIN_NUITS_POUR_PROMOTION) {
             throw new IllegalArgumentException(String.format("Un séjour long ne peut pas consister de moins de %s nuits", MIN_NUITS_POUR_PROMOTION));
-        }
+        } */
     }
 
     @Override
     public boolean aUnNombreDeNuitsCorrect() {
-        return this.nbNuits >= MIN_NUITS_POUR_PROMOTION && this.nbNuits <= 31;
+        return this.getNbNuits() >= 6 && this.getNbNuits() <= 31;
     }
 
     @Override
     public void miseAJourDuPrixDuSejour() {
         this.promotion = calcPromotion();
-        String prixSejourArrondi = String.format("%.2f", (this.prix - this.promotion));
+        this.prix = Math.round(this.getLogement().getTarifParNuit() * this.getNbNuits() - this.promotion);
 
-        System.out.printf("Le prix de ce séjour est de %s€%n", prixSejourArrondi);
+        System.out.printf("Le prix de ce séjour est de %s€%n", this.prix);
     }
 
-    private double calcPromotion() {
-        return this.prix * ((double) PROMOTION_EN_POURCENTAGE / 100);
+    private float calcPromotion() {
+        return this.prix * ((float) PROMOTION_EN_POURCENTAGE / 100);
     }
 
     public void afficher() {
-
         super.afficher();
         miseAJourDuPrixDuSejour();
     }
