@@ -13,17 +13,11 @@ public class Reservation {
     private Date dateDeReservation;
 
     public Reservation(Voyageur voyageur, Reservable objetReservable) {
-        try {
-            validerReservation(objetReservable);
+        validerReservation(objetReservable);
 
-            this.voyageur = voyageur;
-            this.objetReservable = objetReservable;
-            this.dateDeReservation = Date.from(Instant.now());
-        } catch (Exception exception) {
-            System.err.println("Impossible de valider la réservation.");
-            throw exception;
-        }
-
+        this.voyageur = voyageur;
+        this.objetReservable = objetReservable;
+        this.dateDeReservation = Date.from(Instant.now());
     }
 
     /**

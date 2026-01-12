@@ -28,10 +28,15 @@ public class Main {
         Sejour sejour1 = SejourFactory.createSejour(dateArrivee1, 4, logement2, 2);
         Sejour sejour2 = SejourFactory.createSejour(dateArrivee2, 8, logement1, 5);
 
-        Reservation reservation1 = new Reservation(personne4, sejour1);
-        Reservation reservation2 = new Reservation(personne3, sejour2);
+        try {
+            Reservation reservation1 = new Reservation(personne4, sejour1);
+            Reservation reservation2 = new Reservation(personne3, sejour2);
 
-        reservation1.afficher();
-        reservation2.afficher();
+            reservation1.afficher();
+            reservation2.afficher();
+        } catch (Exception exception) {
+            System.err.println("Impossible de valider la réservation.");
+            System.err.println(exception.getMessage());
+        }
     }
 }
