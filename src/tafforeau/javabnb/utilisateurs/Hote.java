@@ -1,5 +1,7 @@
 package tafforeau.javabnb.utilisateurs;
 
+import java.util.Objects;
+
 public class Hote extends Personne {
 
     private final int delaiDeReponse;
@@ -18,5 +20,16 @@ public class Hote extends Personne {
         } else {
             System.out.printf(" qui s'engage à répondre dans les %s heures%n", this.delaiDeReponse);
         }
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) return true;
+        if (obj == null || this.getClass() != obj.getClass()) return false;
+        if (!super.equals(obj)) return false;
+
+        Hote other = (Hote) obj;
+
+        return Objects.equals(this.delaiDeReponse, other.delaiDeReponse);
     }
 }
