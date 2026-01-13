@@ -19,7 +19,7 @@ public class JavaBnBData {
         try {
             LogementsDomParser.parse("res/logements.xml", hotes, logements);
         } catch (Exception e) {
-            throw new RuntimeException(e);
+            System.out.println("Là idéalement il faudrait mettre de la fausse donnée :)");
         }
     }
     // Méthode qui permet de récupérer l’instance
