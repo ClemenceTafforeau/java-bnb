@@ -18,11 +18,16 @@ public class Maison extends Logement {
         this.possedePiscine = possedePiscine;
     }
 
+    public boolean getPossedePiscine() {
+        return this.possedePiscine;
+    }
+
     public void afficher() {
         mHote.afficher();
 
         System.out.printf("Le logement est une maison située %s%n", mAdresse);
         System.out.printf("Superficie : %sm²%n", mSuperficie);
+        System.out.printf("Tarif par nuit : %s€%n", this.getTarifParNuit());
 
         if (this.superficieJardin > 0) {
             System.out.printf("Jardin : %s (%sm²)%n", Utile.afficherPolarite(true), this.superficieJardin);

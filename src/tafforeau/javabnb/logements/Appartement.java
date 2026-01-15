@@ -25,6 +25,7 @@ public class Appartement extends Logement {
 
         System.out.printf("Le logement est un appartement situé %s au %s%n", aAdresse, etage);
         System.out.printf("Superficie : %sm²%n", aSuperficie);
+        System.out.printf("Tarif par nuit : %s€%n", this.getTarifParNuit());
 
         if (this.superficieBalcon > 0) {
             System.out.printf("Balcon : %s (%sm²)%n", Utile.afficherPolarite(true), this.superficieBalcon);
