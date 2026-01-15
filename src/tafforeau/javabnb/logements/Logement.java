@@ -2,7 +2,9 @@ package tafforeau.javabnb.logements;
 
 import tafforeau.javabnb.utilisateurs.Hote;
 
-public abstract class Logement {
+import tafforeau.javabnb.outils.Comparable;
+
+public abstract class Logement implements Comparable<Logement> {
 
     private Hote hote;
     private int tarifParNuit;
@@ -44,4 +46,14 @@ public abstract class Logement {
     }
 
     public abstract void afficher();
+
+    @Override
+    public boolean isHigher(Logement pLogement) {
+        return this.getTarifParNuit() > pLogement.getTarifParNuit();
+    }
+
+    @Override
+    public boolean isLower(Logement pLogement) {
+        return this.getTarifParNuit() < pLogement.getTarifParNuit();
+    }
 }
