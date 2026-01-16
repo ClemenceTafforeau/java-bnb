@@ -11,9 +11,9 @@ public class Maison extends Logement {
     private String mAdresse = getAdresse();
     private int mSuperficie = getSuperficie();
 
-    public Maison(Hote hote, int tarifParNuit, String adresse, int superficie, int nbVoyageursMax, int superficieJardin, boolean possedePiscine) {
+    public Maison(String nomLogement, Hote hote, int tarifParNuit, String adresse, int superficie, int nbVoyageursMax, int superficieJardin, boolean possedePiscine) {
 
-        super(hote, tarifParNuit, adresse, superficie, nbVoyageursMax);
+        super(nomLogement, hote, tarifParNuit, adresse, superficie, nbVoyageursMax);
         this.superficieJardin = superficieJardin;
         this.possedePiscine = possedePiscine;
     }
@@ -22,12 +22,17 @@ public class Maison extends Logement {
         return this.possedePiscine;
     }
 
+    public boolean getPossedeJardin() {
+        return this.superficieJardin > 0;
+    }
+
     public void afficher() {
         mHote.afficher();
 
         System.out.printf("Le logement est une maison située %s%n", mAdresse);
         System.out.printf("Superficie : %sm²%n", mSuperficie);
         System.out.printf("Tarif par nuit : %s€%n", this.getTarifParNuit());
+        System.out.printf("Prix au m² : %s€%n", String.format("%.2f", this.getPrixAuMetreCarre()));
 
         if (this.superficieJardin > 0) {
             System.out.printf("Jardin : %s (%sm²)%n", Utile.afficherPolarite(true), this.superficieJardin);

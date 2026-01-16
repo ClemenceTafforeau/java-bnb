@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 <Logements>
-	<Appartement>
+	<Appartement name="Les Bleuets">
 		<hote>
 			<nom>Lapêche</nom>
 			<prenom>Ella</prenom>
@@ -15,7 +15,7 @@
 		<superficieBalcon>10</superficieBalcon>
 	</Appartement>
 	
-	<Appartement>
+	<Appartement name="Les Hirondelles">
 		<hote>
 			<nom>Menfaim</nom>
 			<prenom>Gérard</prenom>
@@ -30,7 +30,7 @@
 		<superficieBalcon>0</superficieBalcon>
 	</Appartement>
 	
-	<Appartement>
+	<Appartement name="Les Loriots">
 		<hote>
 			<nom>Ouzi</nom>
 			<prenom>Jacques</prenom>
@@ -45,7 +45,7 @@
 		<superficieBalcon>0</superficieBalcon>
 	</Appartement>
 	
-	<Maison>
+	<Maison name="Kerhinet">
 		<hote>
 			<nom>Diossi</nom>
 			<prenom>Kelly</prenom>
@@ -60,7 +60,7 @@
 		<possedePiscine>0</possedePiscine>
 	</Maison>
 	
-	<Maison>
+	<Maison name="Penn An Aod">
 		<hote>
 			<nom>Ochon</nom>
 			<prenom>Paul</prenom>
@@ -75,7 +75,7 @@
 		<possedePiscine>1</possedePiscine>
 	</Maison>
 
-	<Maison>
+	<Maison name="Bleiz Mor">
 		<hote>
 			<nom>Golade</nom>
 			<prenom>Larry</prenom>
@@ -90,7 +90,7 @@
 		<possedePiscine>1</possedePiscine>
 	</Maison>
 
-	<Maison>
+	<Maison name="Ar Bili">
 		<hote>
 			<nom>Heat</nom>
 			<prenom>Hubert</prenom>
@@ -105,7 +105,7 @@
 		<possedePiscine>0</possedePiscine>
 	</Maison>
 
-	<Maison>
+	<Maison name="Ma Zi Bihan">
 		<hote>
 			<nom>Diossi</nom>
 			<prenom>Kelly</prenom>
@@ -120,7 +120,7 @@
 		<possedePiscine>0</possedePiscine>
 	</Maison>
 
-	<Maison>
+	<Maison name="Ti Ma Zud">
 		<hote>
 			<nom>Menfaim</nom>
 			<prenom>Gérard</prenom>
@@ -135,7 +135,7 @@
 		<possedePiscine>1</possedePiscine>
 	</Maison>
 
-	<Maison>
+	<Maison name="Ar Gwalarn">
 		<hote>
 			<nom>Golade</nom>
 			<prenom>Larry</prenom>

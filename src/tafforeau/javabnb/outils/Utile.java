@@ -2,8 +2,10 @@ package tafforeau.javabnb.outils;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
-import java.util.Date;
-import java.util.Locale;
+import java.util.*;
+import java.util.concurrent.ConcurrentHashMap;
+import java.util.function.Function;
+import java.util.function.Predicate;
 
 // Utilisation d'un constructeur privé pour empêcher l'instanciation
 // Final empêche l'héritage
@@ -36,5 +38,12 @@ public final class Utile {
         } else {
             return "rez-de-chaussée";
         }
+    }
+
+    public static <T> Predicate<T> distinctByKey(
+            Function<? super T, ?> keyExtractor) {
+
+        Map<Object, Boolean> seen = new ConcurrentHashMap<>();
+        return t -> seen.putIfAbsent(keyExtractor.apply(t), Boolean.TRUE) == null;
     }
 }

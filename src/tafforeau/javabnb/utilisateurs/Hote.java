@@ -22,6 +22,18 @@ public class Hote extends Personne {
         }
     }
 
+    public int getDelaiDeReponse() {
+        return this.delaiDeReponse;
+    }
+
+    public String getPrenom() {
+        return this.prenom;
+    }
+
+    public String getNom() {
+        return this.nom;
+    }
+
     @Override
     public boolean equals(Object obj) {
         if (this == obj) return true;

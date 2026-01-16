@@ -60,6 +60,7 @@ public final class LogementsDomParser {
 				    listHotes.add(hote);
 				}
 
+				String nomLogement = element.getAttribute("name");
 				int tarifParNuit = Integer.parseInt(element.getElementsByTagName("tarifParNuit").item(0).getTextContent());
 				String adresse = element.getElementsByTagName("adresse").item(0).getTextContent();
 				int superficie = Integer.parseInt(element.getElementsByTagName("superficie").item(0).getTextContent());
@@ -69,7 +70,7 @@ public final class LogementsDomParser {
 					int numeroEtage = Integer.parseInt(element.getElementsByTagName("numeroEtage").item(0).getTextContent());
 					int superficieBalcon = Integer.parseInt(element.getElementsByTagName("superficieBalcon").item(0).getTextContent());
 					
-					Appartement appartement = new Appartement(hote, tarifParNuit, adresse, superficie, nbVoyageursMax, numeroEtage, superficieBalcon);
+					Appartement appartement = new Appartement(nomLogement, hote, tarifParNuit, adresse, superficie, nbVoyageursMax, numeroEtage, superficieBalcon);
 					listLogements.add(appartement);
 				}
 
@@ -77,7 +78,7 @@ public final class LogementsDomParser {
 					int superficieJardin = Integer.parseInt(element.getElementsByTagName("superficieJardin").item(0).getTextContent());
 					int possedePiscine = Integer.parseInt(element.getElementsByTagName("possedePiscine").item(0).getTextContent());
 					
-					Maison maison = new Maison(hote, tarifParNuit, adresse, superficie, nbVoyageursMax, superficieJardin, possedePiscine == 0 ? false : true);
+					Maison maison = new Maison(nomLogement, hote, tarifParNuit, adresse, superficie, nbVoyageursMax, superficieJardin, possedePiscine == 0 ? false : true);
 					listLogements.add(maison);
 				}
 			}
